@@ -88,6 +88,17 @@ async function getPosts(req: Request, res: Response) {
   }
 }
 
+async function getOnePost(req: Request, res: Response) {
+  try {
+    const data = await prismaDB.posts.findFirst({
+      where: { id: req.params.id },
+    });
+    return res.json(data);
+  } catch (error) {
+    return res.status(400).json({ error: "Failed to fetch posts" });
+  }
+}
+
 async function deletePost(req: Request, res: Response) {
   try {
     const data = await prismaDB.posts.delete({
@@ -104,4 +115,5 @@ export default {
   updatePost,
   getPosts,
   deletePost,
+  getOnePost,
 };

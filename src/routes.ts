@@ -13,5 +13,6 @@ routes.get("/get-posts", postController.getPosts);
 routes.post("/create-post", multerConfig, postController.createPost);
 routes.put("/update-post/:id", multerConfig, postController.updatePost);
 routes.delete("/delete-post/:id", postController.deletePost);
+routes.get("/get-one-post/:id", postController.getOnePost);
 
 export default routes;
