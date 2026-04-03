@@ -1,0 +1,13 @@
+import { Router, Request, Response } from "express";
+import postController from "./controllers/postController";
+import { multerConfig } from "./config/uploader";
+
+const routes = Router();
+
+routes.get("/", (req: Request, res: Response) => {
+  return res.send("Servidor  funcionando!");
+});
+routes.get("/get-posts", postController.getPosts);
+routes.post("/create-post", multerConfig, postController.createPost);
+
+export default routes;
