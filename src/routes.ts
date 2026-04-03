@@ -9,5 +9,7 @@ routes.get("/", (req: Request, res: Response) => {
 });
 routes.get("/get-posts", postController.getPosts);
 routes.post("/create-post", multerConfig, postController.createPost);
+routes.put("/update-post/:id", multerConfig, postController.updatePost);
+routes.delete("/delete-post/:id", postController.deletePost);
 
 export default routes;
